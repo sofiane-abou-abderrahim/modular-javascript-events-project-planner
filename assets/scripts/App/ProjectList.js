@@ -1,6 +1,4 @@
-// import { ProjectItem } from './ProjectItem.js';
 import { ProjectItem as PjrItem } from './ProjectItem.js';
-// import { moveElement, DOMHelper, clearEventListeners } from '../Utility/DOMHelper.js';
 import * as DOMH from '../Utility/DOMHelper.js';
 
 export class ProjectList {
