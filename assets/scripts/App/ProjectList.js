@@ -1,6 +1,11 @@
 import { ProjectItem as PjrItem } from './ProjectItem.js';
 import * as DOMH from '../Utility/DOMHelper.js';
 
+// console.log(DEFAULT_VALUE); // defined in app.js but the browser console shows that DEFAULT_VALUE is not defined
+// console.log(window);
+// console.log(this); // this gives us "undefined", so modules also run in strict mode out of the box.
+// console.log(window.DEFAULT_VALUE); // "undefined": because this code is executed before we define it in app.js
+
 export class ProjectList {
   projects = [];
 
@@ -17,6 +22,12 @@ export class ProjectList {
   }
 
   connectDroppable() {
+    // console.log(window.DEFAULT_VALUE);
+    // it works here because this function executes after we create a list in the App class in app.js,
+    // so after we store DEFAULT_VALUE in the window
+    // console.log(globalThis.DEFAULT_VALUE);
+    console.log(globalThis);
+    // So in the end, "globalThis" in modules, replaces "this" as your pointer at the window object
     const list = document.querySelector(`#${this.type}-projects ul`);
 
     list.addEventListener('dragenter', event => {
